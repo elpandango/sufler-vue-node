@@ -1,16 +1,26 @@
 <template>
   <div id="app">
-    <h1>Styles modifier</h1>
-    <div class="textarea-block">
+    <div class="container">
+      <h1>Styles modifier</h1>
+      <div class="textarea-block">
         <textarea
           class="textarea"
           autofocus
           name="textarea" id="textSource" cols="30" rows="10" v-model="text"></textarea>
-      <pre class="textarea">{{responseText}}</pre>
+        <pre class="textarea">{{responseText}}</pre>
+      </div>
+      <br>
+      <button
+        class="btn btn-primary"
+        @click="onUglify"
+        v-bind:disabled="text === ''">Minify CSS
+      </button>
+      <button
+        class="btn btn-primary"
+        @click="onAutoprefix"
+        v-bind:disabled="text === ''">Autoprefix CSS
+      </button>
     </div>
-    <br>
-    <button @click="onUglify">Minify CSS</button>
-    <button @click="onAutoprefix">Autoprefix CSS</button>
   </div>
 </template>
 
@@ -22,8 +32,6 @@
     data() {
       return {
         text: '',
-        email: '',
-        password: '',
         responseText: ''
       }
     },
@@ -32,7 +40,7 @@
         axios.post('http://localhost:8081/uglify', {
           text: this.text
         }).then(response => {
-          console.log(response.data);
+//          console.log(response.data);
           this.responseText = response.data.message;
         }).catch(error => {
           console.log(error);
@@ -42,7 +50,7 @@
         axios.post('http://localhost:8081/autoprefix', {
           text: this.text
         }).then(response => {
-          console.log(response.data);
+//          console.log(response.data);
           this.responseText = response.data.message;
         }).catch(error => {
           console.log(error);
@@ -76,6 +84,7 @@
     resize: none;
     -webkit-appearance: none;
   }
+
   pre {
     text-align: left;
   }

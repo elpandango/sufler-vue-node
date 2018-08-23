@@ -37,21 +37,19 @@ app.post('/uglify', function (req, res) {
 
 app.post('/autoprefix', function (req, res) {
     let content = req.body.text;
-    let resp = 'a {transform: scale(0.5);}';
-
-    const result2 = postcss.parse(resp).toResult();
 
     postcss([ autoprefixer ]).process(content).then(function (result) {
         result.warnings().forEach(function (warn) {
             console.warn(warn.toString());
+            res.send({
+                message: `${warn.toString()}`
+            })
         });
-        console.log(result.css);
+        // console.log(result.css);
         res.send({
             message: `${result.css}`
         })
     });
 });
-
-console.log('Hello world!');
 
 app.listen(process.env.PORT || 8081);
