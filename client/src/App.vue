@@ -31,7 +31,12 @@
     name: 'App',
     data() {
       return {
-        text: '',
+        text: '.example {\n' +
+        '    display: grid;\n' +
+        '    transition: all .5s;\n' +
+        '    user-select: none;\n' +
+        '    background: linear-gradient(to bottom, white, black);\n' +
+        '}\n',
         responseText: ''
       }
     },
