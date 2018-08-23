@@ -6,10 +6,19 @@
         <textarea
           class="textarea"
           autofocus
-          name="textarea" id="textSource" cols="30" rows="10" v-model="text"></textarea>
+          name="textarea"
+          id="textSource"
+          cols="30"
+          rows="10"
+          v-model="text"></textarea>
         <pre class="textarea">{{responseText}}</pre>
       </div>
       <br>
+      <button
+        class="btn btn-warning"
+        @click="onClean"
+        v-bind:disabled="text === ''">Clean Data
+      </button>
       <button
         class="btn btn-primary"
         @click="onUglify"
@@ -25,7 +34,7 @@
 </template>
 
 <script>
-  import axios from 'axios';
+  import axiosInstance from './axios';
 
   export default {
     name: 'App',
@@ -36,13 +45,17 @@
         '    transition: all .5s;\n' +
         '    user-select: none;\n' +
         '    background: linear-gradient(to bottom, white, black);\n' +
-        '}\n',
+        '}',
         responseText: ''
       }
     },
     methods: {
+      onClean(){
+        this.responseText = '';
+        this.text = '';
+      },
       onUglify() {
-        axios.post('http://localhost:8081/uglify', {
+        axiosInstance.post('/uglify', {
           text: this.text
         }).then(response => {
 //          console.log(response.data);
@@ -52,7 +65,7 @@
         })
       },
       onAutoprefix() {
-        axios.post('http://localhost:8081/autoprefix', {
+        axiosInstance.post('/autoprefix', {
           text: this.text
         }).then(response => {
 //          console.log(response.data);
@@ -72,6 +85,7 @@
 
   .textarea-block {
     display: flex;
+    justify-content: space-between;
   }
 
   .textarea {
@@ -80,7 +94,7 @@
     margin: 0;
     padding: 1em;
     min-height: 60vh;
-    width: 50%;
+    width: calc(50% - 1px);
     height: 500px;
     border: 0;
     background: #f5f5f5;
@@ -88,9 +102,12 @@
     font-family: 'Fira Code', 'Operator Mono', Consolas, Monaco, 'Andale Mono', monospace;
     resize: none;
     -webkit-appearance: none;
+    font-size: 16px;
+    line-height: 1.15;
   }
 
   pre {
     text-align: left;
+    white-space: pre-wrap;
   }
 </style>
