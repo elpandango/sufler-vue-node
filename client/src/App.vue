@@ -13,7 +13,7 @@
           rows="10"
           v-model="text"
           @change="onChange"></textarea>
-          <pre class="textarea">{{responseText}}</pre>
+          <textarea ref="result" class="textarea">{{responseText}}</textarea>
         </div>
         <br>
         <div class="btn-box">
@@ -31,6 +31,11 @@
             class="btn btn-primary"
             @click="onAutoprefix"
             v-bind:disabled="text === ''">Autoprefix CSS
+          </button>
+          <button
+            class="btn btn-success"
+            @click="onCopyResult"
+            v-bind:disabled="responseText === ''">Copy result
           </button>
         </div>
       </div>
@@ -89,6 +94,10 @@
         }).catch(error => {
           console.log(error);
         })
+      },
+      onCopyResult() {
+        this.$refs.result.select();
+        document.execCommand("copy");
       }
     }
   }
@@ -102,6 +111,7 @@
   .wrapper {
     padding: 35px 0;
   }
+
   .title {
     margin-top: 0;
     margin-bottom: 20px;
@@ -124,7 +134,7 @@
     border-radius: 0;
     background: #f5f5f5;
     box-shadow: 0 0 0 1px #ddd;
-    font-family: 'Fira Code', 'Operator Mono', Consolas, Monaco, 'Andale Mono', monospace;
+    font-family: 'Lato', sans-serif;
     resize: none;
     -webkit-appearance: none;
     font-size: 16px;

@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="831f9406-d0b1-4ea2-8633-94572b6ffb35" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/index.html" afterPath="$PROJECT_DIR$/client/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/App.vue" afterPath="$PROJECT_DIR$/client/src/App.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/App.js" afterPath="$PROJECT_DIR$/server/src/App.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -31,7 +31,7 @@
       <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
+            <state relative-caret-position="-116">
               <caret line="29" column="32" lean-forward="false" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
               <folding />
             </state>
@@ -41,8 +41,20 @@
       <file leaf-file-name="App.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/src/App.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="145" column="20" lean-forward="true" selection-start-line="145" selection-start-column="20" selection-end-line="145" selection-end-column="20" />
+            <state relative-caret-position="190">
+              <caret line="17" column="12" lean-forward="true" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+              <folding>
+                <element signature="n#style#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="2" lean-forward="false" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -77,9 +89,9 @@
         <option value="$PROJECT_DIR$/client/src/components/Modify.vue" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/server/package.json" />
-        <option value="$PROJECT_DIR$/client/index.html" />
         <option value="$PROJECT_DIR$/client/src/axios.js" />
         <option value="$PROJECT_DIR$/server/src/App.js" />
+        <option value="$PROJECT_DIR$/client/index.html" />
         <option value="$PROJECT_DIR$/client/src/App.vue" />
       </list>
     </option>
@@ -139,12 +151,6 @@
               <item name="nodejs-test-proj-02" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="nodejs-test-proj-02" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nodejs-test-proj-02" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -189,12 +195,12 @@
       <updated>1535008677462</updated>
       <workItem from="1535008679150" duration="19775000" />
       <workItem from="1535356282636" duration="51000" />
-      <workItem from="1535377494672" duration="4848000" />
+      <workItem from="1535377494672" duration="7581000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24674000" />
+    <option name="totallyTimeSpent" value="27407000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -249,7 +255,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1870">
           <caret line="110" column="26" lean-forward="false" selection-start-line="110" selection-start-column="3" selection-end-line="110" selection-end-column="26" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -273,7 +281,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="10" lean-forward="false" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -313,14 +323,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="20" lean-forward="false" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/axios.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -329,9 +331,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="2" lean-forward="false" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
+        <state relative-caret-position="-116">
           <caret line="29" column="32" lean-forward="false" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
           <folding />
         </state>
@@ -339,9 +349,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/App.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="145" column="20" lean-forward="true" selection-start-line="145" selection-start-column="20" selection-end-line="145" selection-end-column="20" />
-          <folding />
+        <state relative-caret-position="190">
+          <caret line="17" column="12" lean-forward="true" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+          <folding>
+            <element signature="n#style#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
