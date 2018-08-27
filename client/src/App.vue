@@ -1,8 +1,9 @@
 <template>
   <div id="app">
     <div class="container">
-      <h1>Styles modifier</h1>
-      <div class="textarea-block">
+      <div class="wrapper">
+        <h1 class="title">Styles modifier</h1>
+        <div class="textarea-block">
         <textarea
           class="textarea"
           autofocus
@@ -10,25 +11,29 @@
           id="textSource"
           cols="30"
           rows="10"
-          v-model="text"></textarea>
-        <pre class="textarea">{{responseText}}</pre>
+          v-model="text"
+          @change="onChange"></textarea>
+          <pre class="textarea">{{responseText}}</pre>
+        </div>
+        <br>
+        <div class="btn-box">
+          <button
+            class="btn btn-warning"
+            @click="onClean"
+            v-bind:disabled="text === ''">Clean Data
+          </button>
+          <button
+            class="btn btn-primary"
+            @click="onUglify"
+            v-bind:disabled="text === ''">Minify CSS
+          </button>
+          <button
+            class="btn btn-primary"
+            @click="onAutoprefix"
+            v-bind:disabled="text === ''">Autoprefix CSS
+          </button>
+        </div>
       </div>
-      <br>
-      <button
-        class="btn btn-warning"
-        @click="onClean"
-        v-bind:disabled="text === ''">Clean Data
-      </button>
-      <button
-        class="btn btn-primary"
-        @click="onUglify"
-        v-bind:disabled="text === ''">Minify CSS
-      </button>
-      <button
-        class="btn btn-primary"
-        @click="onAutoprefix"
-        v-bind:disabled="text === ''">Autoprefix CSS
-      </button>
     </div>
   </div>
 </template>
@@ -46,17 +51,27 @@
         '    user-select: none;\n' +
         '    background: linear-gradient(to bottom, white, black);\n' +
         '}',
-        responseText: ''
+        responseText: '',
+        isPrefixed: false
       }
     },
     methods: {
-      onClean(){
+      onClean() {
         this.responseText = '';
         this.text = '';
       },
+      onChange() {
+        this.isPrefixed = false;
+      },
       onUglify() {
+        let tempText = '';
+        if (this.isPrefixed) {
+          tempText = this.responseText
+        } else {
+          tempText = this.text
+        }
         axiosInstance.post('/uglify', {
-          text: this.text
+          text: tempText
         }).then(response => {
 //          console.log(response.data);
           this.responseText = response.data.message;
@@ -70,6 +85,7 @@
         }).then(response => {
 //          console.log(response.data);
           this.responseText = response.data.message;
+          this.isPrefixed = true;
         }).catch(error => {
           console.log(error);
         })
@@ -83,6 +99,15 @@
     box-sizing: border-box;
   }
 
+  .wrapper {
+    padding: 35px 0;
+  }
+  .title {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 30px;
+  }
+
   .textarea-block {
     display: flex;
     justify-content: space-between;
@@ -93,10 +118,10 @@
     overflow: auto;
     margin: 0;
     padding: 1em;
-    min-height: 60vh;
     width: calc(50% - 1px);
     height: 500px;
     border: 0;
+    border-radius: 0;
     background: #f5f5f5;
     box-shadow: 0 0 0 1px #ddd;
     font-family: 'Fira Code', 'Operator Mono', Consolas, Monaco, 'Andale Mono', monospace;
@@ -109,5 +134,16 @@
   pre {
     text-align: left;
     white-space: pre-wrap;
+  }
+
+  @media only screen and (max-width: 767px) {
+    .textarea-block {
+      flex-direction: column;
+    }
+
+    .textarea {
+      width: 100%;
+      height: 400px;
+    }
   }
 </style>

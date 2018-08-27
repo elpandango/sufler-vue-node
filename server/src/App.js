@@ -42,9 +42,7 @@ app.post('/autoprefix', function (req, res) {
     postcss([autoprefixer]).process(content).then(function (result) {
         result.warnings().forEach(function (warn) {
             console.warn(warn.toString());
-        });
-
-
+        })
         // console.log(result.css);
         res.send({
             message: `${result.css}`
